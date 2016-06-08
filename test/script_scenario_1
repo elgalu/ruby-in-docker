@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# set -e: exit asap if a command exits with a non-zero status
+set -e
+
+echo "#============================="
+echo "# Scenario 1: Check Ruby works"
+echo "#============================="
+docker run --name=ruby --rm -ti local/ruby run_test

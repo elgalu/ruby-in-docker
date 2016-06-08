@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# Example:
+#  ruby --version 2>&1
+#=> ruby 2.3.0p0 (2015-12-25 revision 53290) [x86_64-linux]
+
+# Example:
+#=> 2.3.0p0
+ruby --version 2>&1 | grep -Po '(?<=ruby )([a-z0-9\.]+)'
