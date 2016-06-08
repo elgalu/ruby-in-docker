@@ -241,4 +241,4 @@ RUN  sudo chown -R ${NORMAL_USER}:${NORMAL_GROUP} ${NORMAL_USER_HOME} \
   && sudo chown -R ${NORMAL_USER}:${NORMAL_GROUP} /test \
   && echo ""
 
-CMD [ "irb" ]
+CMD ["irb"]

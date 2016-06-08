@@ -22,15 +22,5 @@ Note image ids also change after scm-source.json has being updated which trigger
   + Digest: TBD_DIGEST
   + Image ID: TBD_IMAGE_ID
 
-## 0.0.1
- + Date: 2016-06-08
- + Initial commit
- + Image tag details:
-  + Timezone: Europe/Berlin
-  + FROM ubuntu:xenial-20160525
-  + Ruby: 2.3.1
-  + Tested on kernel dev host: 4.4.0-23-generic x86_64
-  + Built at dev host with: Docker version 1.11.2, build b9f10c9
-  + Image size: 872.8 MB
 
 [releases]: https://github.com/elgalu/docker-ruby/releases/

@@ -9,8 +9,6 @@ branches:
     - /^tmp/
 
 language: ruby
-ruby:
-  - "2.3.1"
 
 before_install:
   - travis_retry ./test/before_install_setup

@@ -11,7 +11,7 @@ For pull requests or local commits:
 
 For repository owners only:
 
-    git commit -m "Initial commit"
+    git commit -m "Travis commit"
     git tag -d latest #tag latest will be updated from TravisCI
     git tag 2.3.1a && git push origin tmp-2.3.1a && git push --tags
 
@@ -45,3 +45,16 @@ Travis [steps](https://docs.travis-ci.com/user/docker/#Pushing-a-Docker-Image-to
     travis env set DOCKER_USERNAME elgalubot
      travis env set DOCKER_PASSWORD secretsecret #1st space in purpose
      travis env set GH_TOKEN secretsecret
+
+### Bot setup
+#### github.com
+- bot: Fork the repo
+- owner: Add bot as collaborator
+- bot: Generate personal token
+
+#### hub.docker
+- owner: Add bot as collaborator
+
+#### travis-ci.org
+- owner: Enable the project
+- owner: Run all the required `travis env set`
