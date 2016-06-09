@@ -9,7 +9,7 @@ Note image ids also change after scm-source.json has being updated which trigger
 
 ## TBD_DOCKER_TAG
  + Date: TBD_DATE
- + Small TravisCI fixes
+ + TravisCI fixes
  + Image tag details:
   + Timezone: TBD_TIME_ZONE
   + FROM ubuntu:UBUNTU_FLAVOR-UBUNTU_DATE
