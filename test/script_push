@@ -74,10 +74,10 @@ update_changelog() {
   rm -f uname_rm.log
   TBD_DATE=$(date +%F)
   echo "Gathering the exact Ruby version..."
-  TBD_RUBY_VERSION=$(docker run --rm -ti elgalu/ruby ruby_version)
-  TBD_TIME_ZONE=$(docker run --rm -ti elgalu/ruby printenv TZ | sed -r 's/[\/]+/\\\//g')
-  UBUNTU_FLAVOR=$(docker run --rm -ti elgalu/ruby printenv UBUNTU_FLAVOR)
-  UBUNTU_DATE=$(docker run --rm -ti elgalu/ruby printenv UBUNTU_DATE)
+  TBD_RUBY_VERSION=$(docker run --rm elgalu/ruby ruby_version)
+  TBD_TIME_ZONE="$(docker run --rm elgalu/ruby printenv TZ | sed -r 's/[\/]+/\\\//g')"
+  UBUNTU_FLAVOR=$(docker run --rm elgalu/ruby printenv UBUNTU_FLAVOR)
+  UBUNTU_DATE=$(docker run --rm elgalu/ruby printenv UBUNTU_DATE)
   sed -i -- "s/TBD_DOCKER_TAG/${TBD_DOCKER_TAG}/g" CHANGELOG.md || true
   sed -i -- "s/TBD_DIGEST/${TBD_DIGEST}/g" CHANGELOG.md || true
   sed -i -- "s/TBD_IMAGE_ID/${TBD_IMAGE_ID}/g" CHANGELOG.md || true

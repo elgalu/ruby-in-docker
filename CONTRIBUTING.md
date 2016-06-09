@@ -11,7 +11,7 @@ For pull requests or local commits:
 
 For repository owners only:
 
-    git commit -m "Travis commit"
+    git commit -m "Small TravisCI fixes"
     git tag -d latest #tag latest will be updated from TravisCI
     git tag 2.3.1a && git push origin tmp-2.3.1a && git push --tags
 
