@@ -66,7 +66,7 @@ update_changelog() {
   TBD_DOCKER_TAG=${TRAVIS_TAG}
   TBD_DIGEST=$(grep -Po '(?<=digest: )([a-z0-9:]+)' docker_push.log)
   TBD_IMAGE_ID=$(docker inspect -f='{{.Id}}' elgalu/ruby:${TRAVIS_TAG})
-  TBD_IMAGE_SIZE=$(docker images --format "{{.Size}}" elgalu/ruby)
+  TBD_IMAGE_SIZE=$(docker images --format "{{.Size}}" elgalu/ruby:${TRAVIS_TAG})
   TBD_DOCKER_VERS=$(docker --version 2>&1 | grep -Po '(?<=version )([a-z0-9\.]+)')
   TBD_DOCKER_BUILD=$(docker --version 2>&1 | grep -Po '(?<=build )([a-z0-9\.]+)')
   uname -rm 2>&1 >uname_rm.log || true
@@ -74,10 +74,10 @@ update_changelog() {
   rm -f uname_rm.log
   TBD_DATE=$(date +%F)
   echo "Gathering the exact Ruby version..."
-  TBD_RUBY_VERSION=$(docker run --rm -ti elgalu/ruby ruby_version)
-  TBD_TIME_ZONE=$(docker run --rm -ti elgalu/ruby printenv TZ | sed -r 's/[\/]+/\\\//g')
-  UBUNTU_FLAVOR=$(docker run --rm -ti elgalu/ruby printenv UBUNTU_FLAVOR)
-  UBUNTU_DATE=$(docker run --rm -ti elgalu/ruby printenv UBUNTU_DATE)
+  TBD_RUBY_VERSION=$(docker run --rm elgalu/ruby ruby_version)
+  TBD_TIME_ZONE="$(docker run --rm elgalu/ruby printenv TZ | sed -r 's/[\/]+/\\\//g')"
+  UBUNTU_FLAVOR=$(docker run --rm elgalu/ruby printenv UBUNTU_FLAVOR)
+  UBUNTU_DATE=$(docker run --rm elgalu/ruby printenv UBUNTU_DATE)
   sed -i -- "s/TBD_DOCKER_TAG/${TBD_DOCKER_TAG}/g" CHANGELOG.md || true
   sed -i -- "s/TBD_DIGEST/${TBD_DIGEST}/g" CHANGELOG.md || true
   sed -i -- "s/TBD_IMAGE_ID/${TBD_IMAGE_ID}/g" CHANGELOG.md || true
